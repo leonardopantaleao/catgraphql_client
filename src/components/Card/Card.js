@@ -21,7 +21,7 @@ function Card(props) {
         stars.push(<img src={star}/>);
     }    
     return (
-        <div className="catCard">
+        <div className="catCard" id={catId}>
             <img className="main-img" src={props.cat.imageURL}/>
             <h2>
                 {props.cat.catName}
@@ -37,6 +37,7 @@ function Card(props) {
                 onSubmit={e => {
                     e.preventDefault();
                     removeCat({variables: { id: catId }});
+                    window.location.reload();
                 }}
             >
         <button type="submit">Remover</button>
