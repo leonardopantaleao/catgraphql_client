@@ -14,8 +14,8 @@ function Card(props) {
     const rating = props.cat.rating;
     const catId = props.cat.id;
     const [removeCat, { data, loading, error }] = useMutation(REMOVE_CAT_MUTATION);
-    if (loading) return 'Carregando...';
-    if (error) return `Erro ao completar operação remover ${catId}! ${error.message}`
+    if (loading) return 'Loading...';
+    if (error) return `Error after trying to remove ${catId}! ${error.message}`
     var stars = [];
     for (let index = 0; index < rating; index++) {
         stars.push(<img src={star}/>);
@@ -40,7 +40,7 @@ function Card(props) {
                     window.location.reload();
                 }}
             >
-        <button type="submit">Remover</button>
+        <button type="submit">Remove</button>
             </form>
             </div>
         </div>
